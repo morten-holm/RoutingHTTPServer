@@ -1,16 +1,19 @@
 #import "RouteRequest.h"
 #import "HTTPMessage.h"
+#import "RoutingConnection.h"
 
 @implementation RouteRequest {
 	HTTPMessage *message;
 }
 
 @synthesize params;
+@synthesize connection;
 
-- (id)initWithHTTPMessage:(HTTPMessage *)msg parameters:(NSDictionary *)parameters {
+- (id)initWithHTTPMessage:(HTTPMessage *)msg parameters:(NSDictionary *)parameters connection:(RoutingConnection *)conn {
 	if (self = [super init]) {
 		params = parameters;
 		message = msg;
+        connection = conn;
 	}
 	return self;
 }

@@ -2,6 +2,8 @@
 #import "RoutingHTTPServer.h"
 #import "HTTPMessage.h"
 #import "HTTPResponseProxy.h"
+#import "GCDAsyncSocket.h"
+
 
 @implementation RoutingConnection {
 	__unsafe_unretained RoutingHTTPServer *http;
@@ -132,6 +134,10 @@
 	}
 
 	return shouldDie;
+}
+
+- (NSString *) connectedHost {
+    return [asyncSocket connectedHost];
 }
 
 @end

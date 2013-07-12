@@ -244,7 +244,7 @@
 			params = newParams;
 		}
 
-		RouteRequest *request = [[RouteRequest alloc] initWithHTTPMessage:httpMessage parameters:params];
+        RouteRequest *request = [[RouteRequest alloc] initWithHTTPMessage:httpMessage parameters:params connection: (RoutingConnection *) connection];
 		RouteResponse *response = [[RouteResponse alloc] initWithConnection:connection];
 		if (!routeQueue) {
 			[self handleRoute:route withRequest:request response:response];
